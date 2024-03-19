@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.34407.143
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HungerManagementSystem", "HungerManagementSystem\HungerManagementSystem.csproj", "{7911B7F2-D9A9-4E77-963C-FE80AA0AFED6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7911B7F2-D9A9-4E77-963C-FE80AA0AFED6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7911B7F2-D9A9-4E77-963C-FE80AA0AFED6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7911B7F2-D9A9-4E77-963C-FE80AA0AFED6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7911B7F2-D9A9-4E77-963C-FE80AA0AFED6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CFA35FB9-23FC-4E3E-A50F-6383548BA170}
+	EndGlobalSection
+EndGlobal

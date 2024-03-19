@@ -1,0 +1,55 @@
+﻿@model List<HungerManagementSystem.EF.CollectRequest>
+
+<h2>NGO Dashboard</h2>
+
+@if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewBag.ErrorMessage
+    </div>
+}
+<table class="table">
+    <tr>
+        <th>Request ID</th>
+        <th>Restaurant ID</th>
+        <th>Requested Time</th>
+        <th>Preserve Time</th>
+        <th>Status</th>
+        <th>Assign an Employee</th>
+    </tr>
+    @foreach (var collectRequest in Model)
+    {
+        <tr>
+            <td>@collectRequest.Request_Id</td>
+            <td>@collectRequest.Restaurant_Id</td>
+            <td>@collectRequest.Requested_Time</td>
+            <td>@collectRequest.Preserve_Time</td>
+            <td>@collectRequest.Status</td>
+            <td>
+                @if (collectRequest.Status == "Approved" && collectRequest.EmployeeID == null)
+                {
+                    <form action="@Url.Action("AssignCollectRequest", "NGO")" method="post">
+                        <input type="hidden" name="collectRequestId" value="@collectRequest.Request_Id" />
+                        <select name="employeeId">
+
+                            <option value="" disabled selected>Select Employee </option>
+                            <option value="1">Employee 1</option>
+                            <option value="2">Employee 2</option>
+                            <option value="3">Employee 3</option>
+                            <option value="4">Employee 4</option>
+                            <option value="5">Employee 5</option>
+                            <option value="6">Employee 6</option>
+
+                        </select>
+                        <button type="submit" class="btn btn-primary">Assign</button>
+
+                    </form>
+
+                }
+            </td>
+        </tr>
+    }
+</table>
+<p style="align-self:center">
+    @Html.ActionLink("Approve New Collect Request", "ReviewCollectRequests", "NGO", null, new { @class = "btn btn-primary" })
+</p>

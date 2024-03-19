@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FoodManagementModelStoreContainer" CdmEntityContainer="FoodManagementEntities">
+    <EntitySetMapping Name="CollectRequests">
+      <EntityTypeMapping TypeName="FoodManagementModel.CollectRequest">
+        <MappingFragment StoreEntitySet="CollectRequest">
+          <ScalarProperty Name="Request_Id" ColumnName="Request_Id" />
+          <ScalarProperty Name="Restaurant_Id" ColumnName="Restaurant_Id" />
+          <ScalarProperty Name="Requested_Time" ColumnName="Requested_Time" />
+          <ScalarProperty Name="Preserve_Time" ColumnName="Preserve_Time" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Distributions">
+      <EntityTypeMapping TypeName="FoodManagementModel.Distribution">
+        <MappingFragment StoreEntitySet="Distribution">
+          <ScalarProperty Name="Distribute_Id" ColumnName="Distribute_Id" />
+          <ScalarProperty Name="Collect_Id" ColumnName="Collect_Id" />
+          <ScalarProperty Name="Emp_Id" ColumnName="Emp_Id" />
+          <ScalarProperty Name="Distribution_Time" ColumnName="Distribution_Time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="FoodManagementModel.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="Employee_Id" ColumnName="Employee_Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FoodItems">
+      <EntityTypeMapping TypeName="FoodManagementModel.FoodItem">
+        <MappingFragment StoreEntitySet="FoodItem">
+          <ScalarProperty Name="Item_Id" ColumnName="Item_Id" />
+          <ScalarProperty Name="Collect_Request_Id" ColumnName="Collect_Request_Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NGOes">
+      <EntityTypeMapping TypeName="FoodManagementModel.NGO">
+        <MappingFragment StoreEntitySet="NGO">
+          <ScalarProperty Name="NGO_ID" ColumnName="NGO_ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Restaurants">
+      <EntityTypeMapping TypeName="FoodManagementModel.Restaurant">
+        <MappingFragment StoreEntitySet="Restaurant">
+          <ScalarProperty Name="Restaurant_Id" ColumnName="Restaurant_Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Contact_Info" ColumnName="Contact_Info" />
+          <ScalarProperty Name="NGO_ID" ColumnName="NGO_ID" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

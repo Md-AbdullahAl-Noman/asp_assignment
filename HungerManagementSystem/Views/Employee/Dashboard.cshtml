@@ -1,0 +1,44 @@
+﻿@model HungerManagementSystem.DTO.EmployeeDTO
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Dashboard</title>
+    
+</head>
+<body>
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+  
+    @*@Html.ActionLink("Logout", "Logout", "Employee", null, new { @class = "btn btn-danger" })*@
+
+   
+    @using (Html.BeginForm("Logout", "Employee", FormMethod.Post, new { id = "logoutForm" }))
+    {
+        <button type="submit" class="btn btn-danger">Logout</button>
+    }
+
+    <div class="container">
+        <h1>Welcome, @Model.Name!</h1>
+        <table class="table table-striped">
+            <tbody>
+                <tr>
+                    <th>Email:</th>
+                    <td>@Model.Email</td>
+                </tr>
+                <tr>
+                    <th>Phone:</th>
+                    <td>@Model.Phone</td>
+                </tr>
+            </tbody>
+        </table>
+        <a href="@Url.Action("Index", "Employee")" class="btn btn-success">View and Confirm Collect Requests</a>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+﻿@model List<HungerManagementSystem.EF.CollectRequest>
+
+<h2>Pending Collect Requests</h2>
+<table class="table">
+    <tr>
+        <th>Request ID</th>
+        <th>Restaurant ID</th>
+        <th>Requested Time</th>
+        <th>Preserve Time</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+    @foreach (var collectRequest in Model)
+    {
+        <tr>
+            <td>@collectRequest.Request_Id</td>
+            <td>@collectRequest.Restaurant_Id</td>
+            <td>@collectRequest.Requested_Time</td>
+            <td>@collectRequest.Preserve_Time</td>
+            <td>@collectRequest.Status</td>
+            <td>
+                @if (collectRequest.Status == "Pending")
+                {
+                    <form action="@Url.Action("ApproveCollectRequest", "NGO")" method="post">
+                        <input type="hidden" name="collectRequestId" value="@collectRequest.Request_Id" />
+                        <button type="submit" class="btn btn-primary">Approve</button>
+                    </form>
+                }
+            </td>
+        </tr>
+    }
+</table>
+<p>
+    @Html.ActionLink("Go to NGO Dashboard", "Dashboard", "NGO")
+</p>

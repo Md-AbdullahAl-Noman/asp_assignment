@@ -1,0 +1,37 @@
+﻿@model List<HungerManagementSystem.EF.CollectRequest>
+
+<h2>Assigned Collect Requests</h2>
+<table class="table">
+    <tr>
+        <th>Request ID</th>
+        <th>Restaurant ID</th>
+        <th>Requested Time</th>
+        <th>Preserve Time</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+    @foreach (var collectRequest in Model)
+    {
+        <tr>
+            <td>@collectRequest.Request_Id</td>
+            <td>@collectRequest.Restaurant_Id</td>
+            <td>@collectRequest.Requested_Time</td>
+            <td>@collectRequest.Preserve_Time</td>
+            <td>@collectRequest.Status</td>
+            <td>
+                @if (collectRequest.Status == "Assigned")
+                {
+                    <form method="post" action="@Url.Action("ConfirmCollectRequest")">
+                        @Html.Hidden("collectRequestId", collectRequest.Request_Id)
+                        <button type="submit" class="btn btn-success">Confirm</button>
+                    </form>
+                }
+            </td>
+        </tr>
+    }
+</table>
+
+<br>
+<p style="align-self:center">
+    @Html.ActionLink("Go to your profile", "Dashboard", "Employee", null, new { @class = "btn btn-link" })
+</p>

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<HungerManagementSystem.DTO.CollectRequestDTO>
+
+@{
+    ViewBag.Title = "Dashboard";
+}
+
+<h2>Restaurant Dashboard</h2>
+@if (ViewBag.SuccessMessage != null)
+{
+    <div class="alert alert-danger">@ViewBag.SuccessMessage</div>
+    <div class="alert alert-danger">@ViewBag.ErrorMessage</div>
+
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Request_Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Restaurant_Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Requested_Time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Preserve_Time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeID)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Request_Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Restaurant_Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Requested_Time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Preserve_Time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeID)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", "Restaurant", new { id = item.Request_Id },null) |
+                
+                @Html.ActionLink("Delete", "DeleteCollectRequest", "Restaurant", new { requestId = item.Request_Id }, new { onclick = "return confirm('Are you sure you want to delete this collect request?');" })
+            </td>
+        </tr>
+    }
+
+</table>
+<p style="align-self:center">
+    @Html.ActionLink("Open New Collect Request", "SubmitCollectRequest", "Restaurant", null, new { @class = "btn btn-primary" })
+</p>

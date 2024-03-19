@@ -1,0 +1,87 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Welcome to Zero Hunger</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            color: #333333;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .jumbotron {
+            background-color: #fff;
+            color: #333333;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+            .jumbotron h1 {
+                font-size: 36px;
+                font-weight: bold;
+                margin-bottom: 20px;
+                color: #218838;
+            }
+
+            .jumbotron p {
+                font-size: 18px;
+                margin-bottom: 30px;
+            }
+
+            .jumbotron hr {
+                border-top: 1px solid #333333;
+                margin-top: 40px;
+                margin-bottom: 30px;
+            }
+
+        .btn-custom {
+            background-color: #28a745;
+            border-color: #28a745;
+            color: #ffffff;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+            .btn-custom:hover {
+                background-color: #218838;
+                border-color: #218838;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron text-center">
+            <h1>Welcome to Zero Hunger</h1>
+            <p class="lead">We are on a mission to minimize food wastage and feed the deprived people of Dhaka city.</p>
+            <hr class="my-4">
+            <div class="row justify-content-center">
+                <div class="col-md-4">
+                    <h2>Restaurants</h2>
+                    <p>Make a difference today! Initiate a collect request and join us in the fight against hunger.</p>
+                    <a href="@Url.Action("Dashboard", "Restaurant")" class="btn btn-lg btn-custom" role="button">Restaurant Dashboard</a>
+                </div>
+                <div class="col-md-4">
+                    <h2>Employees</h2>
+                    <p>View and accept collect requests</p>
+                    <a href="@Url.Action("Dashboard", "Employee")" class="btn btn-lg btn-custom" role="button">Employee Dashboard</a>
+                </div>
+                <div class="col-md-4">
+                    <h2>NGOs</h2>
+                    <p>Manage collect requests and monitor food distribution</p>
+                    <a href="@Url.Action("Dashboard", "NGO")" class="btn btn-lg btn-custom" role="button">NGO Dashboard</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

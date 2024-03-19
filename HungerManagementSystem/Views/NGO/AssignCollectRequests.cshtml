@@ -1,0 +1,53 @@
+﻿@model List<HungerManagementSystem.EF.CollectRequest>
+
+<h2>Assign Collect Requests</h2>
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="alert alert-danger">@ViewBag.ErrorMessage</div>
+   
+
+}
+
+<table class="table">
+    <tr>
+        <th>Request ID</th>
+        <th>Restaurant ID</th>
+        <th>Requested Time</th>
+        <th>Preserve Time</th>
+        <th>Status</th>
+        <th>Employee ID</th>
+        <th>Action</th>
+    </tr>
+    @foreach (var collectRequest in Model)
+    {
+        <tr>
+            <td>@collectRequest.Request_Id</td>
+            <td>@collectRequest.Restaurant_Id</td>
+            <td>@collectRequest.Requested_Time</td>
+            <td>@collectRequest.Preserve_Time</td>
+            <td>@collectRequest.Status</td>
+            <td>@(collectRequest.EmployeeID ?? 0)</td>
+            <td>
+                @if (collectRequest.Status == "Approved" && collectRequest.EmployeeID == null)
+                {
+                    <form action="@Url.Action("AssignCollectRequest", "NGO")" method="post">
+                        <input type="hidden" name="collectRequestId" value="@collectRequest.Request_Id" />
+                        <select name="employeeId">
+                            Select Employee
+                            <option value="1">Employee 1</option>
+                            <option value="2">Employee 2</option>
+                            <option value="3">Employee 3</option>
+                            <option value="4">Employee 4</option>
+                            <option value="5">Employee 5</option>
+                            <option value="6">Employee 6</option>
+
+                        </select>
+                        <button type="submit">Assign</button>
+                    </form>
+
+                }
+            </td>
+        </tr>
+    }
+</table>
